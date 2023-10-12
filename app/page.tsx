@@ -1,22 +1,14 @@
 import { CountryCard } from "@/components/CountryCard";
-import { Skeleton } from "@/components/ui/skeleton";
 
 export type Country = {
   name: {
     common: string;
   };
 
-  translations: {
-    por: {
-      common: string;
-    };
-  };
-
   flags: {
     svg: string;
     alt: string;
   };
-
   capital: string;
   region: string;
   subregion: string;
@@ -24,7 +16,6 @@ export type Country = {
   languages?: {
     [key: string]: string;
   };
-
   borders?: string[];
   cca3: string;
 };
