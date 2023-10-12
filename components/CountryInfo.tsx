@@ -38,6 +38,8 @@ const CountryInfo: FC<Country> = ({ country }) => {
     country;
   const router = useRouter();
 
+  const formatter = Intl.NumberFormat("en", { notation: "compact" });
+
   return (
     <section className="mt-4 py-4">
       <Button variant={"outline"} onClick={() => router.back()}>
@@ -66,7 +68,7 @@ const CountryInfo: FC<Country> = ({ country }) => {
                 </span>
                 <span className="flex gap-2">
                   <h1 className="font-bold">Population:</h1>
-                  <h6 className="font-light">{population}</h6>
+                  <h6 className="font-light">{formatter.format(population)}</h6>
                 </span>
                 <span className="flex flex-col gap-2">
                   <h1 className="font-bold">Languages:</h1>
