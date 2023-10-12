@@ -68,7 +68,7 @@ const CountryInfo: FC<Country> = ({ country }) => {
                   <h1 className="font-bold">Population:</h1>
                   <h6 className="font-light">{population}</h6>
                 </span>
-                <span className="flex gap-2">
+                <span className="flex flex-col gap-2">
                   <h1 className="font-bold">Languages:</h1>
                   <h6 className="font-light">
                     {Object.values(languages).map((language) => (
