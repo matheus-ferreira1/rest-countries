@@ -72,11 +72,13 @@ const CountryInfo: FC<Country> = ({ country }) => {
                 </span>
                 <span className="flex flex-col gap-2">
                   <h1 className="font-bold">Languages:</h1>
-                  <h6 className="font-light">
-                    {Object.values(languages).map((language) => (
-                      <Badge key={language}>{language}</Badge>
-                    ))}
-                  </h6>
+                  {languages && (
+                    <h6 className="font-light">
+                      {Object.values(languages).map((language) => (
+                        <Badge key={language}>{language}</Badge>
+                      ))}
+                    </h6>
+                  )}
                 </span>
               </div>
             </div>

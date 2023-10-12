@@ -9,7 +9,7 @@ export type Country = {
   name: string;
   flag: string;
   flagAlt: string;
-  region: string;
+  region?: string;
 };
 
 export function CountryCard({ name, flag, flagAlt, region }: Country) {
