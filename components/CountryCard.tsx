@@ -2,32 +2,29 @@ import * as React from "react";
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+
 import Image from "next/image";
 
-export function CountryCard() {
+export type Country = {
+  name: string;
+  flag: string;
+  flagAlt: string;
+  region: string;
+};
+
+export function CountryCard({ name, flag, flagAlt, region }: Country) {
   return (
-    <Card className="min-w-full">
-      <CardHeader>
-        <CardTitle>Country</CardTitle>
-        <CardDescription>Europe</CardDescription>
-      </CardHeader>
-      <CardContent>
-        image placeholder
-        {/* <Image src="link" fill alt="Cuntry flag" /> */}
-      </CardContent>
-      <CardFooter className="flex justify-between">
-        <Link href="/country/name">
-          <Button>More</Button>
-        </Link>
-      </CardFooter>
-    </Card>
+    <article className="p-4 min-w-full border rounded flex flex-col gap-4 transition-all hover:shadow-xl">
+      <div className="relative w-full h-40 p-2 overflow-hidden rounded">
+        <Image src={flag} fill alt={flagAlt} className="object-cover" />
+      </div>
+      <span className="flex gap-2">
+        <h1 className="font-bold">{name}</h1>
+        <h6 className="font-light">{region}</h6>
+      </span>
+      <Link href={`/country/${name}`}>
+        <Button>More</Button>
+      </Link>
+    </article>
   );
 }

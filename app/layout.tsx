@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
@@ -25,7 +25,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main className="min-h-screen mx-auto w-full max-w-2xl px-4 sm:px-0">
+          <main className="min-h-screen mx-auto w-full max-w-7xl px-4 md:px-2">
             <Header />
             {children}
           </main>
