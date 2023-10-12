@@ -1,4 +1,5 @@
 import { CountryCard } from "@/components/CountryCard";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export type Country = {
   name: {
