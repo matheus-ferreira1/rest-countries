@@ -18,6 +18,7 @@ type Country = {
   country: {
     name: {
       common: string;
+      official: string;
     };
     flags: {
       svg: string;
@@ -46,7 +47,15 @@ const CountryInfo: FC<Country> = ({ country }) => {
         <ChevronLeft size={16} />
         Back
       </Button>
-      <article className="mt-4 flex flex-col md:flex-row md:justify-center w-full gap-4">
+      <article className="mt-4 flex flex-col md:flex-row md:justify-center md:items-center w-full gap-4">
+        <div className="relative md:w-[400px] h-64 p-2 overflow-hidden rounded">
+          <Image
+            src={flags.svg}
+            fill
+            alt={flags.alt}
+            className="object-cover"
+          />
+        </div>
         <Card className="flex-none w-full md:w-[400px]">
           <CardHeader>
             <CardTitle>{name.common}</CardTitle>
@@ -54,6 +63,10 @@ const CountryInfo: FC<Country> = ({ country }) => {
           <CardContent>
             <div className="flex flex-col sm:flex-row gap-4 justify-between">
               <div className="">
+                <span className="flex gap-2">
+                  <h1 className="font-bold">Official Name:</h1>
+                  <h6 className="font-light">{name.official}</h6>
+                </span>
                 <span className="flex gap-2">
                   <h1 className="font-bold">Capital:</h1>
                   <h6 className="font-light">{capital}</h6>
@@ -84,14 +97,6 @@ const CountryInfo: FC<Country> = ({ country }) => {
             </div>
           </CardContent>
         </Card>
-        <div className="relative md:w-[400px] h-64 p-2 overflow-hidden rounded">
-          <Image
-            src={flags.svg}
-            fill
-            alt={flags.alt}
-            className="object-contain"
-          />
-        </div>
       </article>
     </section>
   );
